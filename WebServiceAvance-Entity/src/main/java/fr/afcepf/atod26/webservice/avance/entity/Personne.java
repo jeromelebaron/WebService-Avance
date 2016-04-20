@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "personne")
@@ -21,6 +22,9 @@ public class Personne {
 
 	private String nom;
 
+	@Transient
+	private String prenom;
+
 	@Column(name = "date_naissance")
 	private Date dateDeNaissance;
 
@@ -31,12 +35,13 @@ public class Personne {
 	private Adresse adresse;
 
 	public Personne() {
-		//EMPTY
+		// EMPTY
 	}
 
-	public Personne(int id, String nom, Date dateDeNaissance, String mail, Adresse adresse) {
+	public Personne(int id, String nom, String prenom, Date dateDeNaissance, String mail, Adresse adresse) {
 		this.id = id;
 		this.nom = nom;
+		this.prenom = prenom;
 		this.dateDeNaissance = dateDeNaissance;
 		this.mail = mail;
 		this.adresse = adresse;
@@ -56,6 +61,14 @@ public class Personne {
 
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 
 	public Date getDateDeNaissance() {
