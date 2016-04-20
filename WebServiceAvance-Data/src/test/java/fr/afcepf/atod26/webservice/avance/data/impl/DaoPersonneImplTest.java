@@ -32,7 +32,7 @@ public class DaoPersonneImplTest {
 	@Test
 	public void testAjouterPersonne() {
 		Personne nouvellePersonne = new Personne(null, "LE BARON", "Jérome", new Date(), "lebaronjerome@free.fr",
-				new Adresse(1, "33", "Chemin du fossé de l'aumone", "Asnières sur Seine", "92600"));
+				new Adresse(1, "33", "Chemin du fosse aumone", "Asnieres sur Seine", "92600"));
 		try {
 			daoPersonne.ajouterPersonne(nouvellePersonne);
 		} catch (WSException e) {

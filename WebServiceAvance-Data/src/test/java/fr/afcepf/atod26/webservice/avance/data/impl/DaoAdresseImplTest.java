@@ -27,7 +27,7 @@ public class DaoAdresseImplTest {
 
 	@Test
 	public void testAjouterAdresse() {
-		Adresse adresseAAjouter = new Adresse(null, "33", "Chemin du fossé de l'aumone", "Asnières sur Seine", "92600");
+		Adresse adresseAAjouter = new Adresse(null, "33", "Chemin du fosse de l'aumone", "Asnieres sur Seine", "92600");
 		try {
 			daoAdresse.ajouterAdresse(adresseAAjouter);
 		} catch (WSException e) {
