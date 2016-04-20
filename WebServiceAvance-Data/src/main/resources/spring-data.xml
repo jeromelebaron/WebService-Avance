@@ -8,24 +8,27 @@
 	 http://www.springframework.org/schema/context/spring-context.xsd
 	 http://www.springframework.org/schema/tx 
 	 http://www.springframework.org/schema/tx/spring-tx.xsd">
+	<context:component-scan base-package="fr.afcepf.atod26.webservice.avance.data.impl" />
 
-	<bean id="maDataSource" class="org.apache.commons.dbpc2.BasicDataSource"
+	<bean id="maDataSource" class="org.apache.commons.dbcp2.BasicDataSource"
 		destroy-method="close">
-		<property name="driverClassNome" value="${db.driver}" />
+		<property name="driverClassName" value="${db.driver}" />
 		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.username}"/>
 		<property name="password" value="${db.password}" />
 	</bean>
 
-	<bean id="maSessionFactory">
-		<property name="dataSource" value="maDataSource" />
+	<bean id="maSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="maDataSource" />
 		<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
 	</bean>
 
 	<txt:annotation-driven />
 
 	<bean id="transactionManager"
-		class="org.springframework.com.hibernate4.HibernateTransactionManager">
-		<property name="sessionFactory" value="maSessionFactory" />
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="maSessionFactory" />
 	</bean>
+
 
 </beans>

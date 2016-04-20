@@ -18,7 +18,8 @@ public class Personne {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	@Column(name = "id_personne")
+	private Integer id;
 
 	private String nom;
 
@@ -38,7 +39,7 @@ public class Personne {
 		// EMPTY
 	}
 
-	public Personne(int id, String nom, String prenom, Date dateDeNaissance, String mail, Adresse adresse) {
+	public Personne(Integer id, String nom, String prenom, Date dateDeNaissance, String mail, Adresse adresse) {
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -47,11 +48,11 @@ public class Personne {
 		this.adresse = adresse;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -16,6 +16,7 @@ public class Adresse {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_adresse")
 	private Integer id;
 
 	@Column(name = "adr_numero")
@@ -34,7 +35,7 @@ public class Adresse {
 	private List<Personne> personnes;
 
 	public Adresse() {
-		//EMPTY
+		// EMPTY
 	}
 
 	public Adresse(Integer id, String numero, String rue, String ville, String codePostal) {
