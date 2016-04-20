@@ -14,7 +14,7 @@ import fr.afcepf.atod26.webservice.avance.entity.Adresse;
 import fr.afcepf.atod26.webservice.avance.exception.WSException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:spring-data.xml")
+@ContextConfiguration("classpath:spring-data-test.xml")
 public class DaoAdresseImplTest {
 
 	@Autowired
@@ -34,7 +34,7 @@ public class DaoAdresseImplTest {
 			fail("Exception lancée");
 		}
 
-		int idAttendu = 1;
+		int idAttendu = 2;
 		int idGenere = adresseAAjouter.getId().intValue();
 
 		Assert.assertEquals("vérification de l'ajout d'une adresse", idAttendu, idGenere);

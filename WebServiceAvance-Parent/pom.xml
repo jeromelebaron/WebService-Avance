@@ -48,11 +48,6 @@
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>4.12</version>
-			</dependency>
-			<dependency>
 				<groupId>org.apache.axis</groupId>
 				<artifactId>axis</artifactId>
 				<version>1.4</version>
@@ -61,11 +56,6 @@
 				<groupId>javax.xml</groupId>
 				<artifactId>jaxrpc-api</artifactId>
 				<version>1.1</version>
-			</dependency>
-			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>4.12</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -113,11 +103,13 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-test</artifactId>
 				<version>${spring.version}</version>
+				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
 				<version>${junit.version}</version>
+				<scope>test</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

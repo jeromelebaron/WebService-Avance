@@ -18,7 +18,7 @@ import fr.afcepf.atod26.webservice.avance.entity.Personne;
 import fr.afcepf.atod26.webservice.avance.exception.WSException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:spring-data.xml")
+@ContextConfiguration("classpath:spring-data-test.xml")
 public class DaoPersonneImplTest {
 
 	@Autowired
@@ -29,6 +29,7 @@ public class DaoPersonneImplTest {
 		Assert.assertNotNull(daoPersonne);
 	}
 
+	@Test
 	public void testAjouterPersonne() {
 		Personne nouvellePersonne = new Personne(null, "LE BARON", "Jérome", new Date(), "lebaronjerome@free.fr",
 				new Adresse(1, "33", "Chemin du fossé de l'aumone", "Asnières sur Seine", "92600"));
@@ -38,7 +39,7 @@ public class DaoPersonneImplTest {
 			fail("Exception levée");
 		}
 
-		int idAttendu = 1;
+		int idAttendu = 2;
 		int idGenere = nouvellePersonne.getId().intValue();
 
 		Assert.assertEquals("vérification de l'ajout d'une personne", idAttendu, idGenere);
