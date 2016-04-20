@@ -30,6 +30,18 @@ public class Personne {
 	@JoinColumn(name = "id_adresse", nullable = true)
 	private Adresse adresse;
 
+	public Personne() {
+		//EMPTY
+	}
+
+	public Personne(int id, String nom, Date dateDeNaissance, String mail, Adresse adresse) {
+		this.id = id;
+		this.nom = nom;
+		this.dateDeNaissance = dateDeNaissance;
+		this.mail = mail;
+		this.adresse = adresse;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -60,6 +72,14 @@ public class Personne {
 
 	public void setMail(String mail) {
 		this.mail = mail;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 
 }

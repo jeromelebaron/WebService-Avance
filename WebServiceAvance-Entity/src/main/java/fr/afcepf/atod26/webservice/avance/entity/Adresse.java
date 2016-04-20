@@ -34,6 +34,7 @@ public class Adresse {
 	private List<Personne> personnes;
 
 	public Adresse() {
+		//EMPTY
 	}
 
 	public Adresse(Integer id, String numero, String rue, String ville, String codePostal) {
