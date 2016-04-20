@@ -48,18 +48,20 @@ public class DaoPersonneImplTest {
 	@Test
 	public void testRechercherPersonne() {
 		List<Personne> lesPersonnesTrouves = daoPersonne.rechercherPersonne("Asnières sur Seine");
-		
+
 		int tailleListeAttendue = 1;
 		int tailleListeGeneree = lesPersonnesTrouves.size();
 		Assert.assertEquals("vérification de la récupération des personne", tailleListeAttendue, tailleListeGeneree);
-		
+
 		int idPersonneTrouveeAttendu = 1;
 		int idPersonneTrouveeGenere = lesPersonnesTrouves.get(0).getId().intValue();
-		Assert.assertEquals("vérification de l'id de la personne trouvée", idPersonneTrouveeAttendu, idPersonneTrouveeGenere);
-		
+		Assert.assertEquals("vérification de l'id de la personne trouvée", idPersonneTrouveeAttendu,
+				idPersonneTrouveeGenere);
+
 		String mailPersonneTrouveeAttendu = "lebaronjerome@free.fr";
 		String mailPersonneTrouveGenere = lesPersonnesTrouves.get(0).getMail();
-		Assert.assertEquals("vérification du mail de la personne trouvée", mailPersonneTrouveeAttendu, mailPersonneTrouveGenere);
+		Assert.assertEquals("vérification du mail de la personne trouvée", mailPersonneTrouveeAttendu,
+				mailPersonneTrouveGenere);
 	}
 
 }
