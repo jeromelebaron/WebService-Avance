@@ -17,6 +17,10 @@
 			<artifactId>WebServiceAvance-Entity</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>fr.afcepf.atod26</groupId>
+			<artifactId>WebServiceAvance-Data</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>apache-log4j-extras</artifactId>
 		</dependency>

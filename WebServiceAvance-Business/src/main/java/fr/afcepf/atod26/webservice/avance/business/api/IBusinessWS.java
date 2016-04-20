@@ -20,7 +20,7 @@ public interface IBusinessWS {
 	@WebResult(name = "personneAjoutee")
 	Personne ajouterPersonne(@WebParam(name = "personneAAjouter") Personne paramPersonne) throws WSException;
 
-	@WebMethod(operationName = "ajouterUnePersonne")
+	@WebMethod(operationName = "rechercherPersonne")
 	@WebResult(name = "lesPersonnesTrouvees")
 	List<Personne> rechercherPersonne(@WebParam(name = "villeARechercher") String paramVille);
 

@@ -15,6 +15,7 @@
 		<module>WebServiceAvance-Parent</module>
 		<module>WebServiceAvance-Entity</module>
 		<module>WebServiceAvance-Data</module>
+		<module>WebServiceAvance-Business</module>
 	</modules>
 
 </project>
