@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.afcepf.atod26.webservice.avance.data.api.IDaoPersonne;
+import fr.afcepf.atod26.webservice.avance.entity.Adresse;
 import fr.afcepf.atod26.webservice.avance.entity.Personne;
 import fr.afcepf.atod26.webservice.avance.exception.WSException;
 
@@ -22,7 +23,7 @@ public class DaoPersonneImpl implements IDaoPersonne {
 
 	private Logger log = Logger.getLogger(DaoAdresseImpl.class);
 
-	private static final String REQUETE_RECHERCHER_PERSONNE = "FROM Personne p WHERE p.adresse.ville = :paramVille";
+	private static final String REQUETE_RECHERCHER_PERSONNE = "FROM Personne p WHERE p.adresse = :paramAdresse";
 
 	@Override
 	@Transactional
@@ -41,12 +42,12 @@ public class DaoPersonneImpl implements IDaoPersonne {
 	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
-	public List<Personne> rechercherPersonne(String paramVille) {
+	public List<Personne> rechercherPersonne(Adresse paramAdresse) {
 		log.info("Passage dans la méthode ajouterPersonne");
 		List<Personne> lesPersonnes = new ArrayList<>();
 		try {
 			Session session = sessionFactory.getCurrentSession();
-			lesPersonnes = session.createQuery(REQUETE_RECHERCHER_PERSONNE).setParameter("paramVille", paramVille)
+			lesPersonnes = session.createQuery(REQUETE_RECHERCHER_PERSONNE).setParameter("paramAdresse", paramAdresse)
 					.list();
 		} catch (HibernateException e) {
 			log.error(e);

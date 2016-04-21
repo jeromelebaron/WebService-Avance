@@ -47,7 +47,8 @@ public class DaoPersonneImplTest {
 
 	@Test
 	public void testRechercherPersonne() {
-		List<Personne> lesPersonnesTrouves = daoPersonne.rechercherPersonne("Asnières sur Seine");
+		List<Personne> lesPersonnesTrouves = daoPersonne.rechercherPersonne(new Adresse(1, "33",
+				"Chemin du fosse aumone", "Asnieres sur Seine", "92600"));
 
 		int tailleListeAttendue = 1;
 		int tailleListeGeneree = lesPersonnesTrouves.size();

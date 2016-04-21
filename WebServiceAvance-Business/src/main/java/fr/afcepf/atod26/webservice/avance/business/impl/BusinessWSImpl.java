@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import fr.afcepf.atod26.webservice.avance.business.api.IBusinessWS;
 import fr.afcepf.atod26.webservice.avance.data.api.IDaoAdresse;
 import fr.afcepf.atod26.webservice.avance.data.api.IDaoPersonne;
+import fr.afcepf.atod26.webservice.avance.entity.Adresse;
 import fr.afcepf.atod26.webservice.avance.entity.Personne;
 import fr.afcepf.atod26.webservice.avance.exception.WSException;
 
@@ -29,9 +30,9 @@ public class BusinessWSImpl implements IBusinessWS {
 	}
 
 	@Override
-	public List<Personne> rechercherPersonne(String paramVille) {
+	public List<Personne> rechercherPersonne(Adresse paramAdresse) {
 		log.info("Dans la méthode rechercherPersonne");
-		return daoPersonne.rechercherPersonne(paramVille);
+		return daoPersonne.rechercherPersonne(paramAdresse);
 	}
 
 	public void setDaoPersonne(IDaoPersonne daoPersonne) {

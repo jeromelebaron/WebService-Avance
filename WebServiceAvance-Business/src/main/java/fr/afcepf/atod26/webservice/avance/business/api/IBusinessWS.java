@@ -9,6 +9,7 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
 
+import fr.afcepf.atod26.webservice.avance.entity.Adresse;
 import fr.afcepf.atod26.webservice.avance.entity.Personne;
 import fr.afcepf.atod26.webservice.avance.exception.WSException;
 
@@ -22,6 +23,6 @@ public interface IBusinessWS {
 
 	@WebMethod(operationName = "rechercherPersonne")
 	@WebResult(name = "lesPersonnesTrouvees")
-	List<Personne> rechercherPersonne(@WebParam(name = "villeARechercher") String paramVille);
+	List<Personne> rechercherPersonne(@WebParam(name = "adresseARecherche") Adresse paramAdresse);
 
 }
