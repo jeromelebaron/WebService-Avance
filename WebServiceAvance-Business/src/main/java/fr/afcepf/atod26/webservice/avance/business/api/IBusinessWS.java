@@ -9,8 +9,8 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
 
-import fr.afcepf.atod26.webservice.avance.entity.Adresse;
-import fr.afcepf.atod26.webservice.avance.entity.Personne;
+import fr.afcepf.atod26.webservice.avance.business.dto.AdresseDTO;
+import fr.afcepf.atod26.webservice.avance.business.dto.PersonneDTO;
 import fr.afcepf.atod26.webservice.avance.exception.WSException;
 
 @WebService(targetNamespace = "http://lebaronjerome.webserviceavance.atod26.afcepfr")
@@ -19,10 +19,10 @@ public interface IBusinessWS {
 
 	@WebMethod(operationName = "ajouterUnePersonne")
 	@WebResult(name = "personneAjoutee")
-	Personne ajouterPersonne(@WebParam(name = "personneAAjouter") Personne paramPersonne) throws WSException;
+	PersonneDTO ajouterPersonne(@WebParam(name = "personneAAjouter") PersonneDTO paramPersonne) throws WSException;
 
 	@WebMethod(operationName = "rechercherPersonne")
 	@WebResult(name = "lesPersonnesTrouvees")
-	List<Personne> rechercherPersonne(@WebParam(name = "adresseARechercher") Adresse paramAdresse);
+	List<PersonneDTO> rechercherPersonne(@WebParam(name = "adresseARechercher") AdresseDTO paramAdresse);
 
 }

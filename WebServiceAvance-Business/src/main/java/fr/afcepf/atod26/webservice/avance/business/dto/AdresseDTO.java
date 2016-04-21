@@ -1,11 +1,14 @@
 package fr.afcepf.atod26.webservice.avance.business.dto;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(namespace = "http://lebaronjerome.webserviceavance.atod26.afcepfr")
 @XmlType(name = "adresse")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class AdresseDTO {
 
 	@XmlElement(name = "idAdresse")

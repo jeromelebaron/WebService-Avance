@@ -1,5 +1,6 @@
 package fr.afcepf.atod26.webservice.avance.business.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.jws.WebService;
@@ -7,9 +8,12 @@ import javax.jws.WebService;
 import org.apache.log4j.Logger;
 
 import fr.afcepf.atod26.webservice.avance.business.api.IBusinessWS;
+import fr.afcepf.atod26.webservice.avance.business.assembleur.DTOToEntity;
+import fr.afcepf.atod26.webservice.avance.business.assembleur.EntityToDTO;
+import fr.afcepf.atod26.webservice.avance.business.dto.AdresseDTO;
+import fr.afcepf.atod26.webservice.avance.business.dto.PersonneDTO;
 import fr.afcepf.atod26.webservice.avance.data.api.IDaoAdresse;
 import fr.afcepf.atod26.webservice.avance.data.api.IDaoPersonne;
-import fr.afcepf.atod26.webservice.avance.entity.Adresse;
 import fr.afcepf.atod26.webservice.avance.entity.Personne;
 import fr.afcepf.atod26.webservice.avance.exception.WSException;
 
@@ -23,16 +27,23 @@ public class BusinessWSImpl implements IBusinessWS {
 	private IDaoAdresse daoAdresse;
 
 	@Override
-	public Personne ajouterPersonne(Personne paramPersonne) throws WSException {
+	public PersonneDTO ajouterPersonne(final PersonneDTO paramPersonne) throws WSException {
 		log.info("Dans la méthode ajouterPersonne");
-		daoPersonne.ajouterPersonne(paramPersonne);
+		daoPersonne.ajouterPersonne(DTOToEntity.fromDTOPersonneToEntityPersonne(paramPersonne));
 		return paramPersonne;
 	}
 
 	@Override
-	public List<Personne> rechercherPersonne(Adresse paramAdresse) {
+	public List<PersonneDTO> rechercherPersonne(final AdresseDTO paramAdresse) {
 		log.info("Dans la méthode rechercherPersonne");
-		return daoPersonne.rechercherPersonne(paramAdresse);
+		List<Personne> lesPersonnes = daoPersonne.rechercherPersonne(DTOToEntity
+				.fromDTOAdresseToEntityAdresse(paramAdresse));
+		List<PersonneDTO> lesPersonnesDTO = new ArrayList<>();
+		for (final Personne personne : lesPersonnes) {
+			PersonneDTO personneDTO = EntityToDTO.fromPersonneEntityToPersonneDTO(personne);
+			lesPersonnesDTO.add(personneDTO);
+		}
+		return lesPersonnesDTO;
 	}
 
 	public void setDaoPersonne(IDaoPersonne daoPersonne) {
@@ -42,6 +53,5 @@ public class BusinessWSImpl implements IBusinessWS {
 	public void setDaoAdresse(IDaoAdresse daoAdresse) {
 		this.daoAdresse = daoAdresse;
 	}
-	
-	
+
 }
