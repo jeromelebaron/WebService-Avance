@@ -23,6 +23,6 @@ public interface IBusinessWS {
 
 	@WebMethod(operationName = "rechercherPersonne")
 	@WebResult(name = "lesPersonnesTrouvees")
-	List<Personne> rechercherPersonne(@WebParam(name = "adresseARecherche") Adresse paramAdresse);
+	List<Personne> rechercherPersonne(@WebParam(name = "adresseARechercher") Adresse paramAdresse);
 
 }
